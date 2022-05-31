@@ -1,132 +1,67 @@
+package JavaCore_HomeWork4;
+import java.util.*;
 
-package JavaCore_HomeWork3;
-import java.util.ArrayList;
-import java.util.Arrays;
-
+import static java.util.Arrays.asList;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        //1. Создать массив с набором слов (10-20 слов, должны встречаться повторяющиеся)
+        //Найти и вывести список уникальных слов, из которых состоит массив (дубликаты не считаем).
+        //Посчитать, сколько раз встречается каждое слово.
 
-//  Написать метод,который меняет два элемента массива местами (массив может быть любого ссылочного типа)
+        String [] arr = {"котик", "собачка", "суслик", "сурок", "хомяк", "котик", "лев", "енот", "котик", "ежик", "лев"};
+        System.out.println("Исходный массив слов");
+        System.out.println(Arrays.toString(arr));               // печать исходного массива
+        Set<String> uniqElems = new HashSet<>(asList(arr));     // печать уникальных элементов массива
+        System.out.println("Массив уникальных слов");
+        System.out.println(uniqElems);
+        counter(arr);
+        System.out.println();
+        //2. Написать простой класс «Телефонный Справочник», который хранит в себе список фамилий и телефонных
+        //номеров. В этот телефонный справочник с помощью метода add() можно добавлять записи,а с помощью метода
+        //get() искать номер телефона по фамилии. Следует учесть, что под одной фамилией может быть несколько
+        //телефонов (в случае однофамильцев), тогда при запросе такой фамилии должны выводиться все телефоны.
 
-       String[] arrStr = {"one", "two", "three", "four", "five"};
-        Integer[] arrInt = {1, 2, 3, 4, 5};
-        Float[] arrFlo = {1.1f, 0.002f, 3.33f, 400.04f, 5.5f};
 
-        System.out.println("Три массива разного типа:");
-        System.out.println(Arrays.toString(arrStr));
-        System.out.println(Arrays.toString(arrInt));
-        System.out.println(Arrays.toString(arrFlo));
+      startPhonebook();
+      }
 
-        swapTwoElements(arrStr, 1, 4);
-        swapTwoElements(arrInt, 1, 4);
-        swapTwoElements(arrFlo, 1, 4);
+   private static void startPhonebook() {
+        Phonebook phonebook = new Phonebook();
+        phonebook.addPhonebook("Иванов", " +7 111 111-11-11");
+        phonebook.addPhonebook("Петров", " +7 222 222-22-22");
+        phonebook.addPhonebook("Сидоров", " +7 333 333-33-33");
+        phonebook.addPhonebook("Карпов", " +7 444 444-44-44");
+        phonebook.addPhonebook("Иванов", " +7 555 555-55-55");
+        phonebook.addPhonebook("Иванов", " +7 666 666-66-66");
+        phonebook.addPhonebook("Голубева", " +7 777 777-77-77");
+        phonebook.addPhonebook("Синицына", " +7 888 888-88-88");
+        phonebook.addPhonebook("Демидов", " +7 999 999-99-99");
+        phonebook.addPhonebook("Свиридов", " +7 001 001-01-01");
 
-        System.out.println("Поменяли местами элементы с индексами 1 и 4, метод один для всех типов");
-        System.out.println(Arrays.toString(arrStr));
-        System.out.println(Arrays.toString(arrInt));
-        System.out.println(Arrays.toString(arrFlo));
+        System.out.println("Петров: " + phonebook.getPhonebook("Петров"));
+        System.out.println("Иванов: " + phonebook.getPhonebook("Иванов"));
+        System.out.println("Чехов: " + phonebook.getPhonebook("Чехов"));
 
-        // Коробки с фруктами
-
-        System.out.println("Коробки с фруктами ");
-
-        Box box1 = new Box();
-        box1.addFruit(new Apple(1.0));
-        box1.addFruit(new Apple(1.0));
-        box1.addFruit(new Apple(1.0));
-        box1.addFruit(new Orange(1.5)); // попытка положить апельсины к яблокам
-        box1.prnBox();                      // в коробке box1 три яблока
-        System.out.println("Total weight of the box: " + box1.getWeight());
-
-        Box box2 = new Box();
-        box2.addFruit(new Orange(1.5));
-        box2.addFruit(new Orange(1.5));
-        box2.addFruit(new Orange(1.5));
-        box2.addFruit(new Orange(1.5));
-        box2.addFruit(new Apple(1.0));  // попытка положить яблоки к апельсинам
-        box2.prnBox();                      // в коробке box2 четыре апельсина
-        System.out.println("Total weight of the box: " + box2.getWeight());
-
-        if (box1.compare(box2)) System.out.println("Коробки весят одинаково");
-        else System.out.println("Коробки имеют разный вес");
-
-        Box box3 = new Box();   // перекладываем фрукты из коробки в новую коробку
-        box3.addBox(box1);      // теперь в box3 яблоки
-        box3.prnBox();
-        box1.prnBox();          // коробка box1 пустая
     }
 
-    private static <T> void swapTwoElements(T[] array, int index1, int index2) {
-        T element = array[index1];
-        array[index1] = array[index2];
-        array[index2] = element;
+    private static void counter(String[] mass) {
+        Map<String, Integer> arrayList = new LinkedHashMap<>();
+        for (String a : mass) {
+            counterW(arrayList, a);
+        }
+        for (String a: arrayList.keySet()) {
+            System.out.print(a + " = " + arrayList.get(a) + "  ");
+        }
     }
-}
-//      ФРУКТЫ В КОРОБКАХ
-
-class Fruit {
-String name;
-
-double weight;
-
-public String getName() {
-    return name;
-}
-
-public double getWeight() {
-    return weight;
-}
-}
-
-class Apple extends Fruit {
-    public Apple(double val) {
-        name = "Apple";
-        weight = val;
+        private static void counterW(Map<String, Integer> arrayList, String a) {
+            if (arrayList.containsKey(a)) {
+                arrayList.put(a, arrayList.get(a) + 1);
+            } else {
+                arrayList.put(a, 1);
+            }
+        }
     }
-}
-
-class Orange extends Fruit {
-    public Orange(double val) {
-        name = "Orange";
-        weight = val;
-    }
-}
-
-
-class Box {
-ArrayList<Fruit> arr = new ArrayList<>();
-
-public void addFruit(Fruit fr) {
-    if (arr.size() == 0 || arr.get(0).name.equals(fr.name)) // апельсины нельзя добавить к яблокам
-        arr.add(fr);
-}
-
-public void prnBox() {
-    if (arr.size() == 0) {
-        System.out.println("Коробка пустая");
-        return;
-    }
-    for (Fruit fruit : arr) {
-        System.out.println( fruit.getName() + " " + fruit.getWeight());
-    }
-}
-
-public double getWeight() {
-    double total = 0;
-    for (Fruit fruit : arr)
-        total += fruit.getWeight();
-    return total;
-}
-
-public boolean compare(Box bx) {
-    return getWeight() == bx.getWeight();
-}
-
-public void addBox(Box bx) {
-    for (Fruit fruit : bx.arr)
-        arr.add(fruit);
-    bx.arr.clear();
 }
