@@ -1,10 +1,13 @@
+
 package JavaCore_HomeWork3;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 public class Main {
 
     public static void main(String[] args) {
+
 
 //  Написать метод,который меняет два элемента массива местами (массив может быть любого ссылочного типа)
 
@@ -126,5 +129,4 @@ public void addBox(Box bx) {
     for (Fruit fruit : bx.arr)
         arr.add(fruit);
     bx.arr.clear();
-}
 }
