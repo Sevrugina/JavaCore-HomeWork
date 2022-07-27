@@ -1,0 +1,48 @@
+{
+  "id": "c93f050e-63d0-44c5-94c4-e11a4d90b963",
+  "version": "2.0",
+  "name": "Fito",
+  "url": "https://fito.by",
+  "tests": [{
+    "id": "b8346755-d6fd-4fa6-9abf-d5947ef6012a",
+    "name": "Проверка вкладок Красота:Волосы:Шампуни",
+    "commands": [{
+      "id": "ca20f93a-85f3-4921-8bbd-9fb3663a83c7",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a0e1685d-bf42-417a-a1ca-2c1940b9e935",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1101x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "91e795f2-ef09-4133-8f6b-5c0265645f5c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#menu-item-21547 > a",
+      "targets": [
+        ["css=#menu-item-21547 > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Волосы: шампуни')]", "xpath:link"],
+        ["xpath=//li[@id='menu-item-21547']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://fito.by/product-category/beauty/beauty-hair-shampoo/')]", "xpath:href"],
+        ["xpath=//li/ul/li/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f27a44a8-92be-4407-97a6-6aac33504a13",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://fito.by/"],
+  "plugins": []
+}
