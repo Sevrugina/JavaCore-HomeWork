@@ -1,0 +1,109 @@
+{
+  "id": "e264c065-1c4a-434a-918a-9b5c1e22bfd5",
+  "version": "2.0",
+  "name": "Fito",
+  "url": "https://fito.by",
+  "tests": [{
+    "id": "658a5cc6-48ee-4132-a20d-d9f8874ca93d",
+    "name": "Регистрация уже зарегистрированного пользователя",
+    "commands": [{
+      "id": "0a0ed65a-7a89-4358-b27b-df2710de5fbe",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d2d08347-93f7-4b3c-b285-dda278aed887",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b544de7-1a74-4180-8839-0d0b94133fe5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.icon-user",
+      "targets": [
+        ["css=.icon-user", "css:finder"],
+        ["xpath=//div[@id='top-bar']/div/div[3]/ul/li[8]/a/i", "xpath:idRelative"],
+        ["xpath=//li[8]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e0734f34-2690-4c18-9d37-427a29fe70aa",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.icon-user",
+      "targets": [
+        ["css=.icon-user", "css:finder"],
+        ["xpath=//div[@id='top-bar']/div/div[3]/ul/li[8]/a/i", "xpath:idRelative"],
+        ["xpath=//li[8]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d99525d4-93db-4794-a618-9de23b1aa7ab",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.icon-user",
+      "targets": [
+        ["css=.icon-user", "css:finder"],
+        ["xpath=//div[@id='top-bar']/div/div[3]/ul/li[8]/a/i", "xpath:idRelative"],
+        ["xpath=//li[8]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1ae0f2f7-5d60-4d25-87bd-f2b8b7b7b1a3",
+      "comment": "",
+      "command": "click",
+      "target": "id=reg_email",
+      "targets": [
+        ["id=reg_email", "id"],
+        ["name=email", "name"],
+        ["css=#reg_email", "css:finder"],
+        ["xpath=//input[@id='reg_email']", "xpath:attributes"],
+        ["xpath=//div[@id='customer_login']/div[2]/div/form/p/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/form/p/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "985a3e10-4461-4980-a5fe-2fe775105ae6",
+      "comment": "",
+      "command": "type",
+      "target": "id=reg_email",
+      "targets": [
+        ["id=reg_email", "id"],
+        ["name=email", "name"],
+        ["css=#reg_email", "css:finder"],
+        ["xpath=//input[@id='reg_email']", "xpath:attributes"],
+        ["xpath=//div[@id='customer_login']/div[2]/div/form/p/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/form/p/input", "xpath:position"]
+      ],
+      "value": "aaa@mail.ru"
+    }, {
+      "id": "ed4cd6f2-1f2d-47c4-87b1-df4c7294b86b",
+      "comment": "",
+      "command": "click",
+      "target": "name=register",
+      "targets": [
+        ["name=register", "name"],
+        ["css=.woocommerce-Button:nth-child(3)", "css:finder"],
+        ["xpath=//button[@name='register']", "xpath:attributes"],
+        ["xpath=//div[@id='customer_login']/div[2]/div/form/p[3]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/form/p[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4ba9e267-e8a1-4965-bbe8-0b3f2f2e0a29",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["658a5cc6-48ee-4132-a20d-d9f8874ca93d"]
+  }],
+  "urls": ["https://fito.by/"],
+  "plugins": []
+}
